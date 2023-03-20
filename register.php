@@ -42,7 +42,8 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     if (!$isAlreadyRegistered) {
         // 4. Create new user
         $aNewUser = [$_POST['email'] => $_POST['password']];
-        file_put_contents("users.csv", json_encode($aNewUser) . "\n", FILE_APPEND);
+        file_put_contents("users.csv", json_encode($aNewUser) . PHP_EOL, FILE_APPEND);
+
 
         header('Location: /login.php');
         die;
